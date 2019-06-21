@@ -1,0 +1,13 @@
+{{#*inline "contents"}}
+<form action="/dico" method="get">
+  <input type="text" name="qweredje" placeholder="Françâs" {{#if fr}}value="{{fr}}"{{/if}}>
+  <input type="submit" value="Qwêre">
+</form>
+<ul>
+{{#each defs}}
+<li><b>{{this.0}}</b>: {{this.1}}</li>
+{{/each}}
+</ul>
+{{/inline}}
+{{! remove whitespaces with ~ }}
+{{~> base~}}
