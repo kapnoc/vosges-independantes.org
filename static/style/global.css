@@ -115,3 +115,23 @@ div {
     text-align: justify;
 
 }
+
+
+/* FORMS */
+
+input {
+    font-size: .85rem;
+    background-color: #fff;
+    border-color: #000;
+    border-radius: 2rem;
+    color: #000;
+    padding: .25rem 1rem;
+    cursor: text;
+    line-height: 1.15;
+}
+
+.button {
+    background-color: #00ab78;
+    border-radius: 2em;
+    color: #fff;
+}
