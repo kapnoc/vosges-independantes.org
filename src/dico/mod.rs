@@ -4,6 +4,7 @@ use rusqlite;
 use rocket::http::RawStr;
 use rocket_contrib::templates::Template;
 use serde_json::json;
+use percent_encoding::percent_decode;
 
 #[get("/dico")]
 pub fn dico() -> Template {
@@ -15,7 +16,7 @@ pub fn dico() -> Template {
 
 #[get("/dico?<qweredje>")]
 pub fn dico_res(conn: crate::DicoDbConn, qweredje: &RawStr) -> Template {
-    let fr = qweredje.as_str().to_string();
+    let fr = percent_decode(qweredje.as_str().as_bytes()).decode_utf8().unwrap().to_string();
     let safe_qweredje = fr.replace(";", "").replace("\"", "");
     let mut stmt  = conn
         .prepare("SELECT fr, vo FROM defs WHERE fr LIKE \"%?1%\" ORDER BY id ASC"
