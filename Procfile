@@ -1,2 +1,2 @@
 release: python manage.py migrate
-web: gunicorn kapno_cc.wsgi --log-file -
+web: gunicorn vosges_independantes_org.wsgi --log-file -
