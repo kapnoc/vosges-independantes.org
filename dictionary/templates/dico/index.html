@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block 'contents' %}
+
+<form class="center-form" action="/dico" method="get">
+    <input type="text" name="vo" placeholder="Patois" {% if vo %} value="{{ vo }}" {% endif %}>
+    <input type="text" name="fr" placeholder="Françâs" {% if fr %} value="{{ fr }}" {% endif %}>
+    <input type="submit" class="button" value="Qwêre">
+</form>
+
+<ul>
+    {% for i in entries %}
+    <li><b>{{ i.fr }}</b>: {{ i.vo }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

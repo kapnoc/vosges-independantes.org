@@ -54,11 +54,6 @@ div {
     border-bottom: .25rem solid #00ab78;
 }
 
-.header-wrapper a {
-￼    display: block;
-￼    text-decoration: none;
-}
-
 .navbar li a:hover {
     border-bottom: .125em solid rgba(255,255,255,.75);
 }
