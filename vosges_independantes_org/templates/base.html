@@ -24,9 +24,10 @@
       </div>
       <nav class="navbar">
         <ul>
-          <li><a href="/">Accueil</a></li>
+          <li><a href="{% url 'home:index' %}">Accueil</a></li>
           <!-- <li><a href="/gal'rie">Gallerie</a></li> -->
-          <li><a href="/dico/">Dictionnaire</a></li>
+          <li><a href="{% url 'loguedje:dictionary' %}">Dictionnaire</a></li>
+          <li><a href="{% url 'loguedje:translate' %}">Traducteur</a></li>
         </ul>
       </nav>
     </header>

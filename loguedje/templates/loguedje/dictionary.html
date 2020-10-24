@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block 'contents' %}
 
-<form class="center-form" action="/dico" method="get">
+<form class="center-form" action="{% url 'loguedje:dictionary' %}" method="get">
     <input type="text" name="vo" placeholder="Patois" {% if vo %} value="{{ vo }}" {% endif %}>
     <input type="text" name="fr" placeholder="Françâs" {% if fr %} value="{{ fr }}" {% endif %}>
     <input type="submit" class="button" value="Qwêre">
