@@ -38,12 +38,15 @@ ALLOWED_HOSTS = ['vosges-independantes.org']
 INSTALLED_APPS = [
     'home',
     'loguedje',
+    'nature',
+    'markdownpages',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'martor',
 ]
 
 MIDDLEWARE = [

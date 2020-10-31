@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,12 +35,15 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'home',
     'loguedje',
+    'nature',
+    'markdownpages',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'martor',
 ]
 
 MIDDLEWARE = [
@@ -124,8 +129,23 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'vosges_independantes_org/static'
 ]
+
+# Martor Markdown Editor
+MARTOR_THEME = 'bootstrap'
+
+MARTOR_ENABLE_CONFIGS = {
+    'emoji': 'true',  # to enable/disable emoji icons.
+    'imgur': 'false',  # to enable/disable imgur/custom uploader.
+    'mention': 'false',  # to enable/disable mention
+    'jquery': 'true',
+    # to include/revoke jquery (required for admin default django)
+    'living': 'true',  # to enable/disable live updates in preview
+    'spellcheck': 'false',  # to enable/disable spellcheck in form textareas
+    'hljs': 'true',  # to enable/disable hljs highlighting in preview
+}

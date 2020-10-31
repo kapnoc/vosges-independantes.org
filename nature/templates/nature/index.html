@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block 'contents' %}
+<h3>Catégories:</h3>
+<ul>
+    {% for tag in tags %}
+    <li><a href="{% url 'nature:tag_pk' pk=tag.pk %}">{{tag.name}}</a></li>
+    {% endfor %}
+</ul>
+
+<hr />
+
+<h3>Pages:</h3>
+<ul>
+    {% for page in pages %}
+    <li><a href="{% url 'nature:page' pk=page.pk %}">{{page.title}}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
