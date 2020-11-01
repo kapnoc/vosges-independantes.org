@@ -18,6 +18,9 @@ class MarkdownPage(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
     updated_at = models.DateTimeField()
 
+    def __str__(self):
+        return f'"{self.title}" (page)'
+
     class Meta:
         abstract = True
 
@@ -27,3 +30,6 @@ class Image(models.Model):
     description = models.TextField(null=True)
     contents = models.ImageField(upload_to='images')
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
+
+    def __str__(self):
+        return f'"{self.name}" (image)'
