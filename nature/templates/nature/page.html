@@ -2,7 +2,15 @@
 {% block 'contents' %}
 
 {% load martortags %}
+{% load static %}
 
-{{ page.body|safe_markdown }}
+{% block css %}
+<link href="{% static 'plugins/css/ace.min.css' %}" type="text/css" media="all" rel="stylesheet" />
+<link href="{% static 'martor/css/martor.bootstrap.min.css' %}" type="text/css" media="all" rel="stylesheet" />
+{% endblock %}
+
+<div class="martor-preview">
+    {{ page.body|safe_markdown }}
+</div>
 
 {% endblock %}

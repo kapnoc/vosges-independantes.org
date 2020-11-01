@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+import time
 
 import environ
 
@@ -39,7 +40,7 @@ INSTALLED_APPS = [
     'home',
     'loguedje',
     'nature',
-    'markdownpages',
+    'kapnoc_pages',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

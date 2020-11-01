@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include('home.urls')),
     path('loguedje/', include('loguedje.urls')),
     path('nature/', include('nature.urls')),
+    path('kapnoc_pages/', include('kapnoc_pages.urls')),
 ]

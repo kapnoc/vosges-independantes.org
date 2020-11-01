@@ -25,11 +25,13 @@ h1, h2, h3, h4, h5, h6 {
     color: #fff;
     width: 100%;
     margin: 0;
-    padding-top: 20px;
-    padding-bottom: 10px;
     vertical-align: middle;
     text-align: center;
     font-family: "Roboto Mono", monospace;
+}
+
+.header-title {
+    padding-top: 20px;
 }
 
 .header-title::after {
@@ -41,8 +43,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 25px;
+    padding-bottom: 25px;
 }
 
 .navbar > ul {
@@ -57,13 +59,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar a {
     text-decoration: none;
+    border-top: .125em solid transparent;
     border-bottom: .125em solid transparent;
     color: #fff;
     padding: 0;
     margin-left: 16px;
     margin-right: 16px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     transition: 250ms border ease-in-out;
 }
 

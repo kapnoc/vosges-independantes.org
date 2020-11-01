@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, Http404
 from django.core.exceptions import ObjectDoesNotExist
 
-from markdownpages.models import Tag
+from kapnoc_pages.models import Tag
 from .models import NaturePage
 
 

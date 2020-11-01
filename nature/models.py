@@ -1,6 +1,6 @@
 from django.db import models
 
-from markdownpages.models import MarkdownPage
+from kapnoc_pages.models import MarkdownPage
 
 
 class NaturePage(MarkdownPage):

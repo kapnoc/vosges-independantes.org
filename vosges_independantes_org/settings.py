@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+import time
+
+from google.oauth2 import service_account
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -36,7 +39,7 @@ INSTALLED_APPS = [
     'home',
     'loguedje',
     'nature',
-    'markdownpages',
+    'kapnoc_pages',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -141,11 +144,27 @@ MARTOR_THEME = 'bootstrap'
 
 MARTOR_ENABLE_CONFIGS = {
     'emoji': 'true',  # to enable/disable emoji icons.
-    'imgur': 'false',  # to enable/disable imgur/custom uploader.
-    'mention': 'false',  # to enable/disable mention
+    'imgur': 'true',  # to enable/disable imgur/custom uploader.
+    'mention': 'true',  # to enable/disable mention
     'jquery': 'true',
     # to include/revoke jquery (required for admin default django)
     'living': 'true',  # to enable/disable live updates in preview
     'spellcheck': 'false',  # to enable/disable spellcheck in form textareas
     'hljs': 'true',  # to enable/disable hljs highlighting in preview
 }
+
+MARTOR_UPLOAD_URL = '/kapnoc_pages/image/md_uploader/'  # change to local uploader
+
+MAX_IMAGE_UPLOAD_SIZE = 20971520  # 20MB
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = './media'
+
+# Google Cloud Storage
+DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+GS_BUCKET_NAME = 'vosges-independantes-org-dev'
+GS_PROJECT_ID = 'vosges-independantes-org'
+GS_FILE_OVERWRITE = False
+GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
+    "./credentials.json"
+)
