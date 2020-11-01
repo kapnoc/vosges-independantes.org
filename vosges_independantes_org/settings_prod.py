@@ -178,5 +178,5 @@ GS_BUCKET_NAME = 'vosges-independantes-org-prod'
 GS_PROJECT_ID = 'vosges-independantes-org'
 GS_FILE_OVERWRITE = False
 GS_CREDENTIALS = service_account.Credentials.from_service_account_info(
-    json.loads(env.db("GS_CREDENTIALS_JSON"))
+    json.loads(env("GS_CREDENTIALS_JSON"))
 )
