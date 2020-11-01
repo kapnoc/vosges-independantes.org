@@ -139,13 +139,14 @@ STATICFILES_DIRS = [
     BASE_DIR / 'vosges_independantes_org/static'
 ]
 
+
 # Martor Markdown Editor
 MARTOR_THEME = 'bootstrap'
 
 MARTOR_ENABLE_CONFIGS = {
     'emoji': 'true',  # to enable/disable emoji icons.
     'imgur': 'true',  # to enable/disable imgur/custom uploader.
-    'mention': 'true',  # to enable/disable mention
+    'mention': 'false',  # to enable/disable mention
     'jquery': 'true',
     # to include/revoke jquery (required for admin default django)
     'living': 'true',  # to enable/disable live updates in preview
@@ -159,6 +160,7 @@ MAX_IMAGE_UPLOAD_SIZE = 20971520  # 20MB
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = './media'
+
 
 # Google Cloud Storage
 DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
