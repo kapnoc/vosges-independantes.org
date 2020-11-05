@@ -1,18 +1,31 @@
 {% extends 'base.html' %}
 {% block 'contents' %}
-<h3>Catégories:</h3>
-<ul>
+
+<h5>Catégories :</h5>
+<div class="row">
     {% for tag in tags %}
-    <li><a href="{% url 'nature:tag_pk' pk=tag.pk %}">{{tag.name}}</a></li>
+    <a class="btn green darken-2" href="{% url 'nature:tag_pk' pk=tag.pk %}">
+        {{ tag.name }}
+    </a>
     {% endfor %}
-</ul>
+</div>
 
 <hr />
 
-<h3>Pages:</h3>
-<ul>
+<h5>Pages :</h5>
+<div class="row">
     {% for page in pages %}
-    <li><a href="{% url 'nature:page' pk=page.pk %}">{{page.title}}</a></li>
+    <div class="col s6 m3">
+        <a href="{% url 'nature:page' pk=page.pk %}">
+            <div class="card small">
+                <div class="card-content grey-text text-darken-4">
+                    <span class="card-title green-text text-darken-2">{{ page.title }}</span>
+                    <p>{{ page.description }}</p>
+                </div>
+            </div>
+        </a>
+    </div>
     {% endfor %}
-</ul>
+</div>
+
 {% endblock %}
