@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'home',
     'loguedje',
     'nature',
-    'kapnoc_pages',
+    'django_kapnoc',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'martor',
+    'easy_thumbnails',
 ]
 
 MIDDLEWARE = [
@@ -164,7 +165,7 @@ MARTOR_ENABLE_CONFIGS = {
     'hljs': 'true',  # to enable/disable hljs highlighting in preview
 }
 
-MARTOR_UPLOAD_URL = '/kapnoc_pages/image/md_uploader/'  # change to local uploader
+MARTOR_UPLOAD_URL = '/django_kapnoc/image/md_uploader/'  # change to local uploader
 
 MAX_IMAGE_UPLOAD_SIZE = 20971520  # 20MB
 

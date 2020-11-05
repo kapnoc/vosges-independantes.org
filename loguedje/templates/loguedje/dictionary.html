@@ -1,11 +1,21 @@
 {% extends 'base.html' %}
 {% block 'contents' %}
 
-<form class="center-form" action="{% url 'loguedje:dictionary' %}" method="get">
-    <input type="text" name="vo" placeholder="Patois" {% if vo %} value="{{ vo }}" {% endif %}>
-    <input type="text" name="fr" placeholder="Françâs" {% if fr %} value="{{ fr }}" {% endif %}>
-    <input type="submit" class="button" value="Qwêre">
-</form>
+<div class="row center-align">
+    <form class="" action="{% url 'loguedje:dictionary' %}" method="get">
+        <div class="input-field col s6 m5">
+            <label for="vo">Patois</label>
+            <input type="text" id="vo" name="vo" {% if vo %} value="{{ vo }}" {% endif %}>
+        </div>
+        <div class="input-field col s6 m5">
+            <label for="fr">Françâs</label>
+            <input type="text" id="fr" name="fr" {% if fr %} value="{{ fr }}" {% endif %}>
+        </div>
+        <div class="col s12 m1 center-align">
+            <input class="green darken-2 btn" type="submit" class="button" value="Qwêre">
+        </div>
+    </form>
+</div>
 
 <ul>
     {% for i in entries %}

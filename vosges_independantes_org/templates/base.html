@@ -10,45 +10,68 @@
 
   <link rel="icon" href="{% static 'images/favicon.ico' %}" />
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-    crossorigin="anonymous"></script>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    media="screen,projection" />
+
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <link rel="stylesheet" href="{% static 'style/global.css' %}" />
 
-  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
+
 </head>
 
 <body>
 
-  <div class="header-wrap">
-    <div class="header-title">
-      <h1>VOSGES-INDEPENDANTES.ORG</h1>
-    </div>
-    <nav class="navbar">
-      <ul>
-        <li><a href="{% url 'home:index' %}">Accueil</a></li>
+  <header>
+    <nav class="nav-extended grey darken-4">
+      <div class="nav-wrapper">
+        <a class="brand-logo center">vosges-independantes.org</a>
+      </div>
 
-        <li><a href="{% url 'nature:index' %}">Nature</a></li>
+      <div class="divider green darken-2"></div>
+      <div class="section"></div>
 
-        <li><a href="{% url 'loguedje:dictionary' %}">Dictionnaire</a></li>
-        <li><a href="{% url 'loguedje:translate' %}">Traducteur</a></li>
-      </ul>
-  </div>
+      <div class="nav-content">
+        <div class="container">
+          <ul class="tabs tabs-transparent">
+            <li><a class="nav-link" href="{% url 'home:index' %}">Accueil</a></li>
 
-  <div class="title-wrap">
-    <h2>{{title}}</h2>
-  </div>
+            <li><a class="nav-link" href="{% url 'nature:index' %}">Nature</a></li>
 
-  <div class="contents-wrapper">
-    <div class="contents">
+            <li><a class="nav-link" href="{% url 'loguedje:dictionary' %}">Dictionnaire</a></li>
+            <li><a class="nav-link" href="{% url 'loguedje:translate' %}">Traducteur</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <h3 class="center-align m2">{{title}}</h3>
+
       {% block 'contents' %}
       {% endblock %}
+
     </div>
-  </div>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
 
 </body>
 

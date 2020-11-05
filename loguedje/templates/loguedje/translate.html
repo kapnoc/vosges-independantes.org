@@ -1,15 +1,32 @@
 {% extends 'base.html' %}
 {% block 'contents' %}
 
-<form class="center-form" action="{% url 'loguedje:translate' %}" method="get">
-    <textarea cols="80" rows="10" name="fr" placeholder="Françâs">{% if fr %}{{ fr }}{% endif %}</textarea>
-    <hr />
-    <input type="submit" class="button" value="Traduire">
-    <hr />
-</form>
-<form class="center-form" action="{% url 'loguedje:translate' %}" method="get">
-    <textarea cols="80" rows="10" name="vo" placeholder="Patois">{% if vo %}{{ vo }}{% endif %}</textarea>
-    <!-- <input type="submit" class="button" value="Qwêre"> -->
-</form>
+<div class="row center-align">
+
+    <form class="" action="{% url 'loguedje:translate' %}" method="get">
+        <div class="col s12 l5">
+            <div class="input-field">
+                <label for="fr">Françâs</label>
+                <textarea class="materialize-textarea" name="fr">{% if fr %}{{ fr }}{% endif %}</textarea>
+            </div>
+        </div>
+
+        <div class="col s12 l2">
+            <input class="btn green darken-2" type="submit" class="button" value="Traduire">
+        </div>
+
+    </form>
+    <form class="" action="{% url 'loguedje:translate' %}" method="get">
+        <div class="col s12 l5">
+            <div class="input-field">
+                <label for="vo">Patois</label>
+                <textarea class="materialize-textarea" name="vo">{% if vo %}{{ vo }}{% endif %}</textarea>
+            </div>
+        </div>
+
+        <!-- <input type="submit" class="button" value="Qwêre"> -->
+    </form>
+
+</div>
 
 {% endblock %}
