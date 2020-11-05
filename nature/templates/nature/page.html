@@ -9,8 +9,17 @@
 <link href="{% static 'martor/css/martor.bootstrap.min.css' %}" type="text/css" media="all" rel="stylesheet" />
 {% endblock %}
 
-<div class="martor-preview">
-    {{ page.body|safe_markdown }}
+<div class="row">
+    <div class="col s6">
+        <div class="martor-preview">
+            {{ page.body|safe_markdown }}
+        </div>
+    </div>
+    <div class="col s6">
+        <div class="martor-preview">
+            {{ page.body_vo|safe_markdown }}
+        </div>
+    </div>
 </div>
 
 {% endblock %}
