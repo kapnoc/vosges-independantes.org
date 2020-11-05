@@ -7,7 +7,9 @@ from .models import NaturePage
 
 
 def index(request):
-    tags = Tag.objects.all()[:]
+    tags = Tag.objects.filter(
+        naturepage__isnull=False,
+    )[:]
     pages = NaturePage.objects.all()[:]
     context = {
         'title': 'Nature',
@@ -22,7 +24,9 @@ def tag_pk(request, pk):
         queried_tag = Tag.objects.get(pk=pk)
     except ObjectDoesNotExist:
         raise Http404("Tag does not exist")
-    tags = Tag.objects.all()[:]
+    tags = Tag.objects.filter(
+        naturepage__isnull=False,
+    )[:]
     pages = NaturePage.objects.all().filter(tags__pk=queried_tag.pk)[:]
     context = {
         'title': f'Nature - {queried_tag.name}',
@@ -37,7 +41,9 @@ def tag_name(request, name):
         queried_tag = Tag.objects.get(name=name)
     except ObjectDoesNotExist:
         raise Http404("Tag does not exist")
-    tags = Tag.objects.all()[:]
+    tags = Tag.objects.filter(
+        naturepage__isnull=False,
+    )[:]
     pages = NaturePage.objects.all().filter(tags__pk=queried_tag.pk)[:]
     context = {
         'title': f'Nature - {queried_tag.name}',
