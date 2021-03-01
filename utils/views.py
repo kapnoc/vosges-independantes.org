@@ -18,6 +18,11 @@ from martor.utils import LazyEncoder
 # Create your views here.
 
 
+def get_photo_SIZE_by_slug(request, slug, size):
+    photo = get_object_or_404(Photo, slug=slug)
+    return redirect(photo._get_SIZE_url(size))
+
+
 def get_photo_display_by_slug(request, slug):
     photo = get_object_or_404(Photo, slug=slug)
     return redirect(photo.get_display_url())
