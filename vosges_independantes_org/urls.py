@@ -19,8 +19,8 @@ from django.urls import include, path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('martor/', include('martor.urls')),
+    path('utils/', include('utils.urls')),
     path('', include('home.urls')),
     path('loguedje/', include('loguedje.urls')),
     path('nature/', include('nature.urls')),
-    path('django_kapnoc/', include('django_kapnoc.urls')),
 ]

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block 'contents' %}
+
+<h5>Catégories :</h5>
+<div class="row">
+    {% for tag in tags %}
+    <a class="btn green darken-2" href="{% url 'nature:tag' tag.name_vo %}">
+        {{ tag.name_fr }} | {{ tag.name_vo }}
+    </a>
+    {% endfor %}
+</div>
+
+<hr />
+
+<h5>Pages :</h5>
+<div class="row">
+    {% for page in naturepage_list %}
+    <div class="col s6 m3">
+        <a href="{% url 'nature:page' pk=page.pk %}">
+            <div class="card small">
+                <div class="card-content grey-text text-darken-4">
+                    <span class="card-title green-text text-darken-2">{{ page.title_fr }}</span>
+                    <span class="card-title green-text text-darken-2">{{ page.title_vo }}</span>
+                    <div class="row">
+                        <div class="col s6">
+                            <p>{{ page.description_fr }}</p>
+                        </div>
+                        <div class="col s6">
+                            <p>{{ page.description_vo }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,65 +1,38 @@
-from django.shortcuts import render
-from django.http import HttpResponse, Http404
-from django.core.exceptions import ObjectDoesNotExist
+from django.views.generic import ListView, DetailView
+from django.shortcuts import get_object_or_404
 
-from django_kapnoc.models import Tag
+from utils.models import Tag
 from .models import NaturePage
 
 
-def index(request):
-    tags = Tag.objects.filter(
-        naturepage__isnull=False,
-    )[:]
-    pages = NaturePage.objects.all()[:]
-    context = {
-        'title': 'Nature',
-        'tags': tags,
-        'pages': pages,
-    }
-    return render(request, 'nature/index.html', context)
+class NaturePageListView(ListView):
+    model = NaturePage
+    template_name = 'nature/naturepage-list.html'
+
+    def get_queryset(self):
+        if self.kwargs.get('tag', "") != "":
+            self.tag = get_object_or_404(Tag, name_vo=self.kwargs['tag'])
+            return self.tag.naturepage_set.all()
+        else:
+            self.tag = None
+            return NaturePage.objects.all()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        tags = Tag.objects.filter(
+            naturepage__isnull=False,
+        )[:]
+        context['title'] = f"Nature"
+        context['tags'] = tags
+        return context
 
 
-def tag_pk(request, pk):
-    try:
-        queried_tag = Tag.objects.get(pk=pk)
-    except ObjectDoesNotExist:
-        raise Http404("Tag does not exist")
-    tags = Tag.objects.filter(
-        naturepage__isnull=False,
-    )[:]
-    pages = NaturePage.objects.all().filter(tags__pk=queried_tag.pk)[:]
-    context = {
-        'title': f'Nature - {queried_tag.name}',
-        'tags': tags,
-        'pages': pages,
-    }
-    return render(request, 'nature/index.html', context)
+class NaturePageDetailView(DetailView):
+    model = NaturePage
+    template_name = 'nature/naturepage-detail.html'
+    slug_field = 'pk'
 
-
-def tag_name(request, name):
-    try:
-        queried_tag = Tag.objects.get(name=name)
-    except ObjectDoesNotExist:
-        raise Http404("Tag does not exist")
-    tags = Tag.objects.filter(
-        naturepage__isnull=False,
-    )[:]
-    pages = NaturePage.objects.all().filter(tags__pk=queried_tag.pk)[:]
-    context = {
-        'title': f'Nature - {queried_tag.name}',
-        'tags': tags,
-        'pages': pages,
-    }
-    return render(request, 'nature/index.html', context)
-
-
-def page(request, pk):
-    try:
-        page = NaturePage.objects.get(pk=int(pk))
-    except ObjectDoesNotExist:
-        raise Http404("Page does not exist")
-    context = {
-        'title': f'Nature - {page.title}',
-        'page': page,
-    }
-    return render(request, 'nature/page.html', context)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = f"{self.object.title_fr} - {self.object.title_vo} - Nature"
+        return context

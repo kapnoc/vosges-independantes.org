@@ -43,16 +43,20 @@ INSTALLED_APPS = [
     'home',
     'loguedje',
     'nature',
-    'django_kapnoc',
+    'utils',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'martor',
-    'easy_thumbnails',
+    'photologue',
+    'sortedm2m',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -125,7 +129,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fr-fr'
 
 TIME_ZONE = 'UTC'
 
@@ -165,7 +169,7 @@ MARTOR_ENABLE_CONFIGS = {
     'hljs': 'true',  # to enable/disable hljs highlighting in preview
 }
 
-MARTOR_UPLOAD_URL = '/django_kapnoc/image/md_uploader/'  # change to local uploader
+MARTOR_UPLOAD_URL = '/utils/image/md_uploader/'  # change to local uploader
 
 MAX_IMAGE_UPLOAD_SIZE = 20971520  # 20MB
 
