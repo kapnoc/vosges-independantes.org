@@ -18,19 +18,14 @@ from martor.utils import LazyEncoder
 # Create your views here.
 
 
+def get_photo_original_by_slug(request, slug, size):
+    photo = get_object_or_404(Photo, slug=slug)
+    return redirect(photo.image.url)
+
+
 def get_photo_SIZE_by_slug(request, slug, size):
     photo = get_object_or_404(Photo, slug=slug)
     return redirect(photo._get_SIZE_url(size))
-
-
-def get_photo_display_by_slug(request, slug):
-    photo = get_object_or_404(Photo, slug=slug)
-    return redirect(photo.get_display_url())
-
-
-def get_photo_thumbnail_by_slug(request, slug):
-    photo = get_object_or_404(Photo, slug=slug)
-    return redirect(photo.get_thumbnail_url())
 
 
 @ login_required
@@ -73,7 +68,7 @@ def markdown_uploader(request):
             photo_db.save()
 
             image_url = reverse(
-                'utils:photo_display_by_slug', args=[photo_db.slug])
+                'utils:photo_SIZE_by_slug', args=[photo_db.slug, 'medium'])
 
             data = json.dumps({
                 'status': 200,

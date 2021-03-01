@@ -169,7 +169,7 @@ MARTOR_ENABLE_CONFIGS = {
     'hljs': 'true',  # to enable/disable hljs highlighting in preview
 }
 
-MARTOR_UPLOAD_URL = '/utils/image/md_uploader/'  # change to local uploader
+MARTOR_UPLOAD_URL = '/utils/md_uploader/'  # change to local uploader
 
 MAX_IMAGE_UPLOAD_SIZE = 20971520  # 20MB
 
