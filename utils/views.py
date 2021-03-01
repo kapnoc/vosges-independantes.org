@@ -18,7 +18,7 @@ from martor.utils import LazyEncoder
 # Create your views here.
 
 
-def get_photo_original_by_slug(request, slug, size):
+def get_photo_original_by_slug(request, slug):
     photo = get_object_or_404(Photo, slug=slug)
     return redirect(photo.image.url)
 
